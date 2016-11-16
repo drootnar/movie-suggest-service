@@ -20,3 +20,4 @@ env/
 bak_*
 *log.txt
 suggest_service/suggest_service/migrations/
+suggest_service/celerybeat-schedule

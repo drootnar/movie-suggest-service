@@ -42,6 +42,11 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         model = Profile
         exclude = ('movies',)
 
+    def validate_min_rating(self, value):
+        if value <= 0 or value > 10:
+            raise serializers.ValidationError("Must be between 1 - 10")
+        return value
+
     def create(self, validated_data):
         whitelist = validated_data.pop('whitelist')
         blacklist = validated_data.pop('blacklist')

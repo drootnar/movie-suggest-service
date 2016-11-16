@@ -6,7 +6,7 @@ from .celeryconf import app
 from .models import Movie, Genre, Profile, Suggestion
 
 # every 12 h
-@periodic_task(run_every=timedelta(seconds=60))
+@periodic_task(run_every=timedelta(seconds=60*60*12))
 def periodic_grab_movies():
     grab_movies.delay()
 
